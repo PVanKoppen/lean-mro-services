@@ -612,7 +612,8 @@
   .why {
     padding: 120px 60px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 2;
     background-image: url('Vliegtuigonderhoud staart.jpg');
     background-size: cover;
     background-position: center;
@@ -768,6 +769,8 @@
 
   /* ── CTA ── */
   .cta-section {
+    position: relative;
+    z-index: 1;
     padding: 100px 60px;
     background: var(--primary);
     display: flex;
