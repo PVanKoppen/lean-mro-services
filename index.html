@@ -421,11 +421,11 @@
     transition: width 0.4s ease;
   }
 
-  .service-card:hover { background: #93caf2; }
+  .service-card:hover { background: #0d3d6b; box-shadow: 0 8px 32px rgba(13,27,42,0.18); transform: translateY(-3px); }
   .service-card:hover::before { width: 100%; }
-  .service-card:hover h3 { color: var(--black); }
-  .service-card:hover p { color: rgba(13,27,42,0.75); }
-  .service-card:hover .service-num { color: rgba(13,27,42,0.6); }
+  .service-card:hover h3 { color: #ffffff; }
+  .service-card:hover p { color: rgba(255,255,255,0.85); }
+  .service-card:hover .service-num { color: rgba(255,255,255,0.5); }
   .service-card:hover .service-icon { filter: none; }
   .service-card:hover .service-link { color: var(--accent); }
 
@@ -817,7 +817,7 @@
     position: relative;
     z-index: 1;
     padding: 100px 60px;
-    background: var(--primary);
+    background: linear-gradient(135deg, #0d3d6b 0%, #0d1b2a 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
