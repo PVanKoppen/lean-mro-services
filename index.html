@@ -349,7 +349,10 @@
   /* ── SERVICES ── */
   .services {
     padding: 120px 60px;
-    background: #e8f0f9;
+    background-image: url(\'Vliegtuigonderhoud staart.jpg\');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   .section-header {
@@ -478,7 +481,7 @@
   /* ── ABOUT / TEAM ── */
   .about {
     padding: 120px 60px;
-    background: #93caf2;
+    background: #e8f0f9;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
@@ -659,10 +662,7 @@
     position: relative;
     overflow: visible;
     z-index: 2;
-    background-image: url('Vliegtuigonderhoud staart.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: #93caf2;
   }
 
   .why::before {
@@ -953,13 +953,13 @@
     .hero-stats { left: 32px; bottom: 32px; gap: 32px; }
     .stat-num { font-size: 1.5rem; }
 
-    .services { padding: 80px 32px; }
+    .services { padding: 80px 32px;  background-attachment: scroll; }
     .section-header { grid-template-columns: 1fr; gap: 20px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
 
     .about { padding: 80px 32px; gap: 60px; }
 
-    .why { padding: 80px 32px; background-attachment: scroll; }
+    .why { padding: 80px 32px; }
     .why-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
 
     .cta-section { padding: 80px 32px; flex-direction: column; align-items: flex-start; gap: 32px; }
@@ -1083,7 +1083,7 @@
 
     .team-avatar { width: 56px; height: 56px; font-size: 1rem; }
 
-    .why { padding: 60px 20px; background-attachment: scroll; }
+    .why { padding: 60px 20px; }
     .why-grid { grid-template-columns: 1fr; gap: 16px; }
     .why-item { padding: 36px 24px; border: 1px solid rgba(25,120,183,0.15); border-radius: 4px; overflow: visible; }
     .why-item-body { position: relative; top: auto; left: auto; right: auto; box-shadow: none; border: none; border-top: 1px solid rgba(25,120,183,0.12); border-radius: 0; padding: 16px 0 0 0; margin-top: 16px; background: transparent; }
@@ -1110,7 +1110,7 @@
   <ul id="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About us</a></li>
-    <li><a href="#approach">Approach</a></li>
+    <li><a href="#approach">Vision</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1120,7 +1120,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#about" onclick="closeMobileMenu()">About us</a>
-  <a href="#approach" onclick="closeMobileMenu()">Approach</a>
+  <a href="#approach" onclick="closeMobileMenu()">Vision</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
 </div>
 
@@ -1170,55 +1170,6 @@
     <div class="marquee-item">Policy deployment</div>
   </div>
 </div>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-header">
-    <div>
-      <div class="section-tag">What we do</div>
-      <h2>Our services</h2>
-    </div>
-    <p class="section-desc">From strategic advice to operational implementation — we offer end-to-end MRO consultancy tailored to your organization.</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 8L28 18H38L30 25L33 36L22 29L11 36L14 25L6 18H16L22 8Z" stroke="#1978B7" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-      <h3>Training</h3>
-      <a href="#" class="service-link">More info →</a>
-    </div>
-
-    <div class="service-card fade-up">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 4L38 13V31L22 40L6 31V13L22 4Z" stroke="#1978B7" stroke-width="1.5"/>
-        <path d="M22 14V22M22 22V30M22 22H30M22 22H14" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <h3>Consultancy</h3>
-      <a href="#" class="service-link">More info →</a>
-    </div>
-
-    <div class="service-card fade-up">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="8" width="28" height="28" rx="2" stroke="#1978B7" stroke-width="1.5"/>
-        <path d="M15 22L20 27L29 17" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3>Project management</h3>
-      <a href="#" class="service-link">More info →</a>
-    </div>
-
-    <div class="service-card fade-up">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="22" cy="22" r="14" stroke="#1978B7" stroke-width="1.5"/>
-        <path d="M16 22C16 22 18 26 22 26C26 26 28 22 28 22" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M17 17L17.5 18M27 17L26.5 18" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <h3>Coaching</h3>
-      <a href="#" class="service-link">More info →</a>
-    </div>
-  </div>
-</section>
 
 <!-- ABOUT / TEAM -->
 <section class="about" id="about">
@@ -1282,7 +1233,7 @@
   <div class="why-bg"></div>
   <div style="position: relative;">
     <div class="section-tag" style="font-weight: 800;">Why Lean MRO Solutions</div>
-    <h2 style="color: #ffffff;">Our approach</h2>
+    <h2 style="color: #ffffff;">Our Vision</h2>
     <div class="why-grid">
       <div class="why-item">
         <div class="why-toggle-header"><h4><span class="question-line">What's the problem?</span><span class="subtitle-line">The challenge</span></h4><span class="toggle-icon">+</span></div>
@@ -1346,6 +1297,55 @@
   </div>
 </section>
 
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">What we do</div>
+      <h2>Our services</h2>
+    </div>
+    <p class="section-desc">From strategic advice to operational implementation — we offer end-to-end MRO consultancy tailored to your organization.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 8L28 18H38L30 25L33 36L22 29L11 36L14 25L6 18H16L22 8Z" stroke="#1978B7" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <h3>Training</h3>
+      <a href="#" class="service-link">More info →</a>
+    </div>
+
+    <div class="service-card fade-up">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 4L38 13V31L22 40L6 31V13L22 4Z" stroke="#1978B7" stroke-width="1.5"/>
+        <path d="M22 14V22M22 22V30M22 22H30M22 22H14" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Consultancy</h3>
+      <a href="#" class="service-link">More info →</a>
+    </div>
+
+    <div class="service-card fade-up">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="8" width="28" height="28" rx="2" stroke="#1978B7" stroke-width="1.5"/>
+        <path d="M15 22L20 27L29 17" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Project management</h3>
+      <a href="#" class="service-link">More info →</a>
+    </div>
+
+    <div class="service-card fade-up">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="14" stroke="#1978B7" stroke-width="1.5"/>
+        <path d="M16 22C16 22 18 26 22 26C26 26 28 22 28 22" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M17 17L17.5 18M27 17L26.5 18" stroke="#1978B7" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Coaching</h3>
+      <a href="#" class="service-link">More info →</a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <h2>Ready To Take On The Challenge?</h2>
@@ -1373,7 +1373,7 @@
       <h5>Company</h5>
       <ul>
         <li><a href="#about">About us</a></li>
-        <li><a href="#approach">Approach</a></li>
+        <li><a href="#approach">Vision</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
