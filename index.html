@@ -1100,6 +1100,122 @@
 
     .marquee-item { padding: 0 28px; }
   }
+
+  /* ── CONTACT MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,27,42,0.72);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 48px 44px;
+    max-width: 560px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(13,27,42,0.28);
+  }
+  .modal-close {
+    position: absolute;
+    top: 18px; right: 22px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+  }
+  .modal-close:hover { color: #0d1b2a; }
+  .modal-box h3 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0d1b2a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .modal-box p.modal-sub {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #0d1b2a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .form-group input,
+  .form-group textarea {
+    border: 1.5px solid #d0dae6;
+    border-radius: 4px;
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: #0d1b2a;
+    background: #f8fafc;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: #1978B7; background: #fff; }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .modal-success.show { display: block; }
+  .modal-success h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1978B7;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 640px) {
+    .modal-box { padding: 36px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -1131,7 +1247,7 @@
     <h1>Your Challenge<br>Is Our<br><em>Mission.</em></h1>
     <p class="hero-sub">We help aviation companies optimize their Maintenance, Repair & Overhaul processes — with proven expertise and hands-on involvement.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Free consultation</a>
+      <button onclick="openContactModal()" class="btn-primary">Contact</button>
       <a href="#services" class="btn-ghost">Our services</a>
     </div>
   </div>
@@ -1349,7 +1465,7 @@
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <h2>Ready To Take On The Challenge?</h2>
-  <a href="/cdn-cgi/l/email-protection#a6cfc8c0c9e6c7d6c3decbd4c988c8ca" class="btn-dark">Schedule a call</a>
+  <button onclick="openContactModal()" class="btn-dark">Contact</button>
 </section>
 
 <!-- FOOTER -->
@@ -1426,4 +1542,53 @@
   }
   checkHamburger();
   window.addEventListener('resize', checkHamburger);
+
+// Contact modal
+function openContactModal() {
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset form after close
+  setTimeout(function() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('modalFormWrap').style.display = 'block';
+    document.getElementById('modalSuccess').classList.remove('show');
+  }, 300);
+}
+// Close on overlay click
+document.getElementById('contactModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactModal();
+});
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeContactModal();
+});
+// Form submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name    = document.getElementById('cf-name').value.trim();
+  var email   = document.getElementById('cf-email').value.trim();
+  var phone   = document.getElementById('cf-phone').value.trim();
+  var subject = document.getElementById('cf-subject').value.trim();
+  var message = document.getElementById('cf-message').value.trim();
+  if (!name || !email || !subject || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  var body = 'Name: ' + name + '\n'
+           + 'Email: ' + email + '\n'
+           + (phone ? 'Phone: ' + phone + '\n' : '')
+           + '\nMessage:\n' + message;
+  var mailto = 'mailto:info@leanmrosolutions.com'
+             + '?subject=' + encodeURIComponent(subject)
+             + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+  // Show success message
+  document.getElementById('modalFormWrap').style.display = 'none';
+  document.getElementById('modalSuccess').classList.add('show');
+});
+
 </script>
