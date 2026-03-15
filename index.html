@@ -421,7 +421,7 @@
     transition: width 0.4s ease;
   }
 
-  .service-card:hover { background: #0d3d6b; box-shadow: 0 8px 32px rgba(13,27,42,0.18); transform: translateY(-3px); }
+  .service-card:hover { background: #1978B7; box-shadow: 0 8px 32px rgba(13,27,42,0.18); transform: translateY(-3px); }
   .service-card:hover::before { width: 100%; }
   .service-card:hover h3 { color: #ffffff; }
   .service-card:hover p { color: rgba(255,255,255,0.85); }
@@ -817,7 +817,7 @@
     position: relative;
     z-index: 1;
     padding: 100px 60px;
-    background: linear-gradient(135deg, #0d3d6b 0%, #0d1b2a 100%);
+    background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1227,7 +1227,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About us</a></li>
     <li><a href="#approach">Vision</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="event.preventDefault(); openContactModal()">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1237,7 +1237,7 @@
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#about" onclick="closeMobileMenu()">About us</a>
   <a href="#approach" onclick="closeMobileMenu()">Vision</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" onclick="event.preventDefault(); closeMobileMenu(); openContactModal()">Contact</a>
 </div>
 
 <!-- HERO -->
